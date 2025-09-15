@@ -1,14 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include "CalcFunctions.h"
 using namespace std;
 
 int main() {
     char mode, key;
+   
     double answer;
     mainMenu(mode);
     while (mode != 's' && mode != 'S' && mode != 'b' && mode != 'B') {
         cout << "ERROR: " << mode << " is not a valid key\n";
+        cin.clear();
         cin.ignore(10000000, '\n');
         mainMenu(mode);
     }
@@ -20,22 +23,22 @@ int main() {
                 case 'a':
                 case 'A':
                     answer = add();
-                    cout << answer << endl;
+                    cout << "Answer: " << answer << endl;
                     break;
                 case 's':
                 case 'S':
                     answer = subtract();
-                    cout << answer << endl;
+                    cout << "Answer: " << answer << endl;
                     break;
                 case 'm':
                 case 'M':
                     answer = multiply();
-                    cout << answer << endl;
+                    cout << "Answer: " << answer << endl;
                     break;
                 case 'd':
                 case 'D':
                     answer = divide();
-                    cout << answer << endl;
+                    cout << "Answer: " << answer << endl;
                     break;
                 case 'q':
                 case 'Q':
@@ -43,8 +46,6 @@ int main() {
                     break;
                 default:
                     cout << "ERROR: Invalid Entry\n";
-                    simpleMenu(key);
-                    continue;
             }
         } while (key != 'q' && key != 'Q');
     }
